@@ -31,7 +31,7 @@ public class ClickController : MonoBehaviour
     {
         float doubleDecreasing = 1.1f;
         int maxPercent = 100;
-        bool isExploded = UnityEngine.Random.Range(0, maxPercent + 1) <= _explosionChancePercent;
+        bool isExploded = UnityEngine.Random.Range(1, maxPercent + 1) <= _explosionChancePercent;
 
         if (isExploded)
             _explosionChancePercent /= doubleDecreasing;
