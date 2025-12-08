@@ -1,27 +1,21 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody), typeof(Renderer))]
 public class Cube : MonoBehaviour
 {
-    public int Generation { get; private set; } = 1;
+    private Rigidbody _rigidbody;
+    private Renderer _renderer;
 
-    public Material GetRandomColorMaterial()
+    public int SpawnChance { get; private set; } = 100;
+
+    private void Awake()
     {
-        Material newMaterial = new Material(Shader.Find("Standard"));
-        newMaterial.color = Color.HSVToRGB(Random.Range(0f, 1f), Random.Range(0.7f, 0.9f), Random.Range(0.8f, 1f));
-        return newMaterial;
+        _rigidbody = GetComponent<Rigidbody>();
+        _renderer = GetComponent<Renderer>();
     }
 
-    public void SetGeneration(int generation)
+    public void SetSpawnChance(int spawnChance)
     {
-        Generation = generation;
-    }
-
-    public static Vector3 GetRandomPositionAround(Vector3 position, float spreadDistance = 3f)
-    {
-        return position + new Vector3(
-            Random.Range(-spreadDistance, spreadDistance),
-            Random.Range(0f, spreadDistance),
-            Random.Range(-spreadDistance, spreadDistance)
-        );
+        SpawnChance = spawnChance;
     }
 }

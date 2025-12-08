@@ -5,16 +5,11 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] private float _explosionRadius;
     [SerializeField] private float _explosionForce;
-    [SerializeField] private float _explosionSpreadDistance = 2f;
+    [SerializeField] private PositionCalculator _positionCalculator;
 
     public void DoExplosionEffect(List<Cube> explodedObjects, Vector3 explosionPosition)
     {
         foreach (Cube cube in explodedObjects)
-            cube.GetComponent<Rigidbody>().AddExplosionForce(_explosionForce, GetRandomExplosionPosition(explosionPosition), _explosionRadius);
-    }
-
-    private Vector3 GetRandomExplosionPosition(Vector3 position)
-    {
-        return Cube.GetRandomPositionAround(position, _explosionSpreadDistance);
+            cube.GetComponent<Rigidbody>().AddExplosionForce(_explosionForce, _positionCalculator.GetRandomPosition(explosionPosition), _explosionRadius);
     }
 }
