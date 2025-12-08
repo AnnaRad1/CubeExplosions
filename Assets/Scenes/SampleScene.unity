@@ -378,10 +378,7 @@ MonoBehaviour:
   _prefab: {fileID: 2135732821437346201, guid: 528633fa3565dbd45a6d7e926ff1721f, type: 3}
   _parent: {fileID: 322297072}
   _positionCalculator: {fileID: 589003718}
-  _colorChanger: {fileID: 922261878}
-  _destructibleLayer:
-    serializedVersion: 2
-    m_Bits: 64
+  _colorRandomizer: {fileID: 922261878}
 --- !u!1001 &276832278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -757,7 +754,7 @@ GameObject:
   - component: {fileID: 922261877}
   - component: {fileID: 922261878}
   m_Layer: 0
-  m_Name: ColorChanger
+  m_Name: ColorRandomizer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
