@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 488087329}
   - component: {fileID: 488087330}
   m_Layer: 0
-  m_Name: Raycast
+  m_Name: Raycaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
