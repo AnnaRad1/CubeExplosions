@@ -2,18 +2,18 @@ using UnityEngine;
 
 public class CubeBreakReaction : MonoBehaviour
 {
-    [SerializeField] private Raycast _raycast;
+    [SerializeField] private Raycaster _raycast;
     [SerializeField] private Spawner _spawner;
     [SerializeField] private Explosion _explosion;
 
     private void OnEnable()
     {
-        _raycast.ObjectChosen += React;
+        _raycast.CubeDetected += React;
     }
 
     private void OnDisable()
     {
-        _raycast.ObjectChosen -= React;
+        _raycast.CubeDetected -= React;
     }
 
     private void React(Cube chosenCube)

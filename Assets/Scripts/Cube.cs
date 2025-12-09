@@ -14,8 +14,16 @@ public class Cube : MonoBehaviour
         _renderer = GetComponent<Renderer>();
     }
 
-    public void SetSpawnChance(int spawnChance)
+    public void Initialize(Vector3 position, Vector3 scale, Color color, int spawnChance)
     {
+        transform.position = position;
+        transform.localScale = scale;
+        _renderer.material.color = color;
         SpawnChance = spawnChance;
+    }
+
+    public void AddExplosionForce(float explosionForce, Vector3 randomPosition, float explosionRadius)
+    {
+        _rigidbody.AddExplosionForce(explosionForce, randomPosition, explosionRadius);
     }
 }

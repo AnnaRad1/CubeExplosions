@@ -10,6 +10,6 @@ public class Explosion : MonoBehaviour
     public void DoExplosionEffect(List<Cube> explodedObjects, Vector3 explosionPosition)
     {
         foreach (Cube cube in explodedObjects)
-            cube.GetComponent<Rigidbody>().AddExplosionForce(_explosionForce, _positionCalculator.GetRandomPosition(explosionPosition), _explosionRadius);
+            cube.AddExplosionForce(_explosionForce, _positionCalculator.GetRandomPosition(explosionPosition), _explosionRadius);
     }
 }

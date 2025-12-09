@@ -3,9 +3,7 @@ using UnityEngine;
 
 public class InputDetector : MonoBehaviour
 {
-    private const int LeftMouseButton = 0;
-    private const int RightMouseButton = 1;
-    private const int OneFingerTouch = 0;
+    private const int MainInteractionButton = 0;
 
     public event Action<Vector2> InputReceived;
 
@@ -17,15 +15,9 @@ public class InputDetector : MonoBehaviour
 
     private bool TryGetInput(out Vector2 inputPosition)
     {
-        if (Input.GetMouseButtonDown(LeftMouseButton) || Input.GetMouseButtonDown(RightMouseButton))
+        if (Input.GetMouseButtonDown(MainInteractionButton))
         {
             inputPosition = Input.mousePosition;
-            return true;
-        }
-
-        if (Input.touchCount > 0 && Input.GetTouch(OneFingerTouch).phase == TouchPhase.Began)
-        {
-            inputPosition = Input.GetTouch(OneFingerTouch).position;
             return true;
         }
 

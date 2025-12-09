@@ -13,15 +13,15 @@ public class Spawner : MonoBehaviour
         int splitCount = 2;
         int objectsNumber = GetRandomObjectsNumberToSpawn();
         List<Cube> newObjects = new();
+        Vector3 newScale = scale / splitCount;
+        int newSpawnChance = spawnChance / splitCount;
 
         for (int i = 1; i <= objectsNumber; i++)
         {
-            Cube newCube = Instantiate(_prefab);
-            newCube.gameObject.transform.SetParent(_parent);
-            newCube.transform.position = _positionCalculator.GetRandomPosition(position);
-            newCube.transform.localScale = scale / splitCount;
-            newCube.GetComponent<Renderer>().material.color = _colorRandomizer.GetRandomColor();
-            newCube.SetSpawnChance(spawnChance / splitCount);
+            Cube newCube = Instantiate(_prefab, _parent);
+            Vector3 newPosition = _positionCalculator.GetRandomPosition(position);
+            Color newColor = _colorRandomizer.GetRandomColor();
+            newCube.Initialize(newPosition, newScale, newColor, newSpawnChance);
             newObjects.Add(newCube);
         }
 
