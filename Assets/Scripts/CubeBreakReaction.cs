@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class CubeBreakReaction : MonoBehaviour
 {
@@ -18,12 +19,17 @@ public class CubeBreakReaction : MonoBehaviour
 
     private void React(Cube chosenCube)
     {
+        Vector3 position = chosenCube.transform.position;
+
         if (IsSpawned(chosenCube))
         {
             Vector3 scale = chosenCube.transform.localScale;
-            Vector3 position = chosenCube.transform.position;
             int currentSpawnChance = chosenCube.SpawnChance;
-            _explosion.DoExplosionEffect(_spawner.MakeNewObjects(scale, position, currentSpawnChance), position);
+            _explosion.DoExplosionEffectForNewCubes(_spawner.MakeNewObjects(scale, position, currentSpawnChance), position);
+        }
+        else
+        {
+            _explosion.ExplodeCubesAround(chosenCube, position);
         }
 
         _spawner.Destroy(chosenCube);

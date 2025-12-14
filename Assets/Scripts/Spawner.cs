@@ -15,7 +15,7 @@ public class Spawner : MonoBehaviour
         List<Cube> newObjects = new();
         Vector3 newScale = scale / splitCount;
         int newSpawnChance = spawnChance / splitCount;
-
+        
         for (int i = 1; i <= objectsNumber; i++)
         {
             Cube newCube = Instantiate(_prefab, _parent);

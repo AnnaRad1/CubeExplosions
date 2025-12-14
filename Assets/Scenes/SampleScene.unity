@@ -166,9 +166,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 865185270f0baf949b3988f0247a50a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _explosionRadius: 40
-  _explosionForce: 150
+  _explosionRadius: 300
+  _explosionForce: 300
   _positionCalculator: {fileID: 589003718}
+  _destructibleLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &45289028
 GameObject:
   m_ObjectHideFlags: 0

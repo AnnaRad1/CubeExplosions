@@ -22,8 +22,8 @@ public class Cube : MonoBehaviour
         SpawnChance = spawnChance;
     }
 
-    public void AddExplosionForce(float explosionForce, Vector3 randomPosition, float explosionRadius)
+    public void AddExplosionForce(float explosionForce, Vector3 explosionCenter, float explosionRadius)
     {
-        _rigidbody.AddExplosionForce(explosionForce, randomPosition, explosionRadius);
+        _rigidbody.AddExplosionForce(explosionForce, explosionCenter, explosionRadius);
     }
 }
